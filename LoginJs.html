@@ -1,0 +1,58 @@
+<script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.getElementById('username').addEventListener("input",zzz('username','lb1'));
+document.getElementById('pswrd').addEventListener("input",zzz('pswrd','lb2'));
+document.getElementById('loginButton').addEventListener("click",gee);
+function zzz(txtbx,lbl){
+var el= document.getElementById(txtbx)
+var elV = el.value;
+var lb = document.getElementById(lbl);
+if(elV.length==3){lb.style.visibility = "collapse";}
+if(elV.length>6){
+el.disabled=true;
+}}
+
+//after click actions
+
+function gee(){
+var objData ={};
+objData.username = document.getElementById('username').value;
+objData.password = document.getElementById('pswrd').value;
+google.script.run.withSuccessHandler(action).Vx(objData);
+}
+
+function action(m){
+var mg=document.getElementById('msgBody');
+if(m==true){
+google.script.run.withSuccessHandler(genT).dt();
+}else{
+document.getElementById('mainBody').style.visibility="collapse";
+mg.style.visibility="visible";
+document.getElementById('msg').innerHTML="Invalid Username or Password! Try Again.";
+}
+}
+
+function genT(dtAr){
+document.getElementById('mainBody').style.visibility="collapse";
+document.getElementById('tt').style.visibility = "visible";
+var table = document.getElementById('ttt');
+dtAr.forEach(function(r){
+var row = document.createElement('tr');
+var c1 = document.createElement('td');
+var c2 = document.createElement('td');
+var c3 = document.createElement('td');
+var aEl = document.createElement('a');
+aEl.href=r[2];
+aEl.target="_blank";
+aEl.appendChild(document.createTextNode('Click Here'));
+c1.textContent=r[0];
+c2.textContent=r[1];
+c3.appendChild(aEl);
+row.appendChild(c1);
+row.appendChild(c2);
+row.appendChild(c3);
+table.appendChild(row);
+})
+}
+
+</script>

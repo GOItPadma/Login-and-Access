@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_self">
+  </head>
+<body oncontextmenu="return false" style="margin: 0;
+ padding: 0;
+ overflow: auto;">
+
+<div class="center" id="mainBody" style="width: 270px;
+ margin: 30px;
+ position: relative;">
+<div class="header" style="font-size: 30px;
+ font-weight: bold;
+ color: black;
+ padding: 25px 0 30px 25px;
+ background: #e0e0e0;
+ border-bottom: 1px solid #370e3f;
+ border-radius: 5px 5px 0 0;">
+
+Login and Access</div>
+
+<div style="position: absolute;
+ background: white;
+ width: 100%;
+ padding: 70px 10px 0 30px;
+ box-sizing: border-box;
+ border: 1px solid #424242;
+ border-radius: 0 0 5px 5px;" >
+ <label id="lb1" style="color: red; font-size: small;">*Minimum 3 Characters</label>
+  <input id="username" autocomplete="off" type="text" placeholder="Username" style="height: 50px;
+ margin-bottom: 20px;
+ width: 90%;
+ padding: 0 10px;
+ border-radius: 3px;
+ border: 1px solid silver;
+ font-size: 18px;">
+  <label id="lb2" style="margin-top: 20px; color: red; font-size: small;">*Minimum 3 Characters</label>
+  <i class="far fa-envelope"></i>
+  <input id="pswrd" type="password" placeholder="Password" style="height: 50px;
+  width: 90%;
+ padding: 0 10px;
+ border-radius: 3px;
+ border: 1px solid silver;
+ font-size: 18px;">
+  <i class="fas fa-lock" onclick="show()"></i>
+  <button type="button" id="loginButton" style="margin-top: 40px;
+ margin-bottom: 40px;
+ width: 130px;
+ height: 45px;
+ color: white;
+ cursor: pointer; 
+ border-radius: 45px;
+ border-radius: 5px;
+ background: #424242;">Sign in</button>
+ 
+ <div class="footer" style="width: 360px; margin-top: 40px ;
+ margin-bottom: 40px; position:absolute;">
+<table>
+<tr>
+<td style="border: 0px"><a href="<?= ScriptApp.getService().getUrl(); ?>?p=10" target="_blank">Forgot Password?</a></td>
+<td style="border: 0px"><a href="" style="padding: 0 0 0 20px;" target="_blank">Sign Up</a></td> <!-- Link to the Registration Form --> 
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div style="width: 270px;
+ margin: 10px;
+ position: relative; visibility: collapse;" id="msgBody">
+ <h2 id="msg"></h2>
+</div>
+<?!= include("Table");?>
+<?!= include("Login Page JS");?>
+</body>
+</html>

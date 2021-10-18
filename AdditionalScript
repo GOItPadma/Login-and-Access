@@ -1,0 +1,7 @@
+function include(filename){
+ return HtmlService.createHtmlOutputFromFile(filename).getContent();
+}
+
+function openPage(p){
+ return HtmlService.createTemplateFromFile(p).evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}

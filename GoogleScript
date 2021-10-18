@@ -1,0 +1,52 @@
+var url="";// URL of the google sheet
+var ss = SpreadsheetApp.openByUrl(url);
+function doGet(e) {
+  if (e.parameters.p=="10") {
+  return openPage("Password Request")
+  }else{
+    return openPage("Login Page");
+  }
+}
+
+function sV(submittedName){
+var wsD = ss.getSheetByName("Data");
+var wsW = ss.getSheetByName("Password Request");
+var r =2;  
+var lastrow = wsD.getLastRow();
+while(r<= lastrow){
+var dataName = wsD.getRange(r, 1).getValue();
+    if(dataName == submittedName){
+      wsW.appendRow([submittedName, new Date()]);
+      return true;
+      break;
+    }  
+    else
+      r=r+1;
+  }
+}
+
+function Vx(objData){
+var wsD = ss.getSheetByName("Data");
+var wsW = ss.getSheetByName("Login History");
+var r=2;
+var lastrow= wsD.getLastRow();
+  while(r<= lastrow){
+  var dataU= wsD.getRange(r, 1).getValue();
+  var dataP = wsD.getRange(r, 2).getValue();
+    if((dataU == objData.username) && (dataP == objData.password)){
+    wsW.appendRow([new Date(),objData.username]);
+      return true;
+      break;
+    }
+    else
+      r=r+1;
+  }
+}
+
+//return data from ss
+
+function dt(){
+var ws= ss.getSheetByName("Resources"); 
+var data = ws.getRange(2,1,ws.getLastRow()-1,3).getValues();
+  return data;
+}
