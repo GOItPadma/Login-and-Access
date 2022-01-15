@@ -1,5 +1,5 @@
 # Login and Access
-The web app allows to access data from google sheet through a login system. The app is designed to access study resources. The app is embedded to another site. So, the dimensions may seem a bit weird. <br>
+The web app allows to access data from google sheet through a login system. The app is designed to access study resources. The app is embedded to another site. So, the dimensions are adjusted to the resolution. <br>
 
 <img src="images/ss_login.JPG" height="600">
 
